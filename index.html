@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Tanaman Jeruk Nipis - KKN 03 UNUSIDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #15803d 0%, #4ade80 50%, #facc15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #15803d;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .lime-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 20px 40px rgba(21, 128, 61, 0.3);
+            border: 8px solid #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lime-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(21, 128, 61, 0.4);
+        }
+
+        /* Description Section */
+        .description {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .description h2 {
+            color: #15803d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .description p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Benefits and Care Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #15803d 0%, #4ade80 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4ade80 0%, #facc15 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: #4ade80;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4ade80 0%, #facc15 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #15803d;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Benefits specific styling */
+        .benefits .card {
+            border-left: 4px solid #4ade80;
+        }
+
+        .benefits .card:hover {
+            border-left-color: #facc15;
+        }
+
+        /* Care tips specific styling */
+        .care .card {
+            border-left: 4px solid #eab308;
+        }
+
+        .care .card:hover {
+            border-left-color: #4ade80;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .lime-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .description {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .lime-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .description {
+                padding: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Tanaman Jeruk Nipis</h1>
+            <p class="subtitle">Citrus Aurantifolia</p>
+            <img src="image/jeruk nipis.jpeg" alt="Jeruk Nipis" class="lime-image">
+        </header>
+
+        <!-- Description -->
+        <section class="description">
+            <h2>Tentang Tanaman Jeruk Nipis</h2>
+            <p>
+                Jeruk nipis (Citrus aurantifolia) adalah tanaman buah tropis yang terkenal dengan rasa asamnya yang khas dan aromanya yang segar. Tanaman ini berasal dari Asia Tenggara dan telah menyebar ke seluruh dunia sebagai bumbu masakan dan bahan herbal. Jeruk nipis tidak hanya memberikan cita rasa yang unik pada makanan, tetapi juga memiliki banyak manfaat kesehatan dan mudah untuk dirawat di halaman rumah.
+            </p>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section benefits">
+            <div class="section-header">
+                <h2>Manfaat Jeruk Nipis</h2>
+                <p>Khasiat luar biasa untuk kesehatan dan kehidupan sehari-hari</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🍋</div>
+                    <h3>Kaya Vitamin C</h3>
+                    <p>Mengandung vitamin C tinggi yang membantu meningkatkan sistem kekebalan tubuh, mencegah sariawan, dan mempercepat penyembuhan luka.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💧</div>
+                    <h3>Detoksifikasi Alami</h3>
+                    <p>Membantu membersihkan racun dalam tubuh, melancarkan pencernaan, dan mendukung fungsi hati untuk metabolisme yang lebih sehat.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Menurunkan Berat Badan</h3>
+                    <p>Mengandung serat dan asam sitrat yang dapat membantu meningkatkan metabolisme dan memberikan rasa kenyang lebih lama.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Perawatan Kulit</h3>
+                    <p>Antioksidan dan vitamin C membantu mencerahkan kulit, mengurangi flek hitam, dan menjaga elastisitas kulit secara alami.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🫀</div>
+                    <h3>Menjaga Kesehatan Jantung</h3>
+                    <p>Flavonoid dan kalium dalam jeruk nipis membantu menurunkan tekanan darah dan menjaga kesehatan kardiovaskular.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍳</div>
+                    <h3>Bumbu Masakan Alami</h3>
+                    <p>Memberikan rasa asam segar pada masakan, menghilangkan bau amis pada daging dan ikan, serta mengawetkan makanan secara alami.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Care Tips Section -->
+        <section class="section care">
+            <div class="section-header">
+                <h2>Tips Perawatan</h2>
+                <p>Panduan mudah merawat tanaman jeruk nipis di rumah</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">☀️</div>
+                    <h3>Penyinaran Optimal</h3>
+                    <p>Tempatkan tanaman di lokasi yang mendapat sinar matahari langsung 6-8 jam per hari. Hindari tempat yang terlalu teduh karena dapat mengurangi produktivitas buah.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💧</div>
+                    <h3>Penyiraman Teratur</h3>
+                    <p>Siram tanaman 2-3 kali seminggu atau saat permukaan tanah terasa kering. Pastikan drainase baik untuk mencegah genangan air yang dapat merusak akar.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Pemupukan Berkala</h3>
+                    <p>Berikan pupuk organik atau NPK setiap 2-3 bulan sekali. Gunakan pupuk kandang atau kompos untuk memberikan nutrisi yang lengkap bagi tanaman.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✂️</div>
+                    <h3>Pemangkasan Rutin</h3>
+                    <p>Pangkas cabang yang kering, sakit, atau tumbuh tidak beraturan setiap 3-6 bulan. Ini akan merangsang pertumbuhan tunas baru dan meningkatkan produktivitas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Pengendalian Hama</h3>
+                    <p>Periksa daun secara berkala untuk mendeteksi hama seperti kutu daun atau ulat. Gunakan pestisida organik atau semprotan air sabun untuk pengendalian alami.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏺</div>
+                    <h3>Media Tanam Berkualitas</h3>
+                    <p>Gunakan campuran tanah humus, kompos, dan pasir dengan perbandingan 2:1:1. Pastikan pH tanah berkisar antara 6,0-7,5 untuk pertumbuhan optimal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; KKN 03 UNUSIDA 2025 . Dibuat dengan ❤️ untuk pecinta tanaman.</p>
+        </footer>
+    </div>
+</body>
+</html>
